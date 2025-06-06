@@ -4,8 +4,9 @@ const Header = () => {
     return (
         <header className="bg-blue-600 text =-white p-4">
             <nav className="flex gap-4">
-                <Link href="/">Home</Link>
-                <Link href="/">About</Link>
+                <Link href="/">landing</Link>
+                <Link href="/home">Home</Link>
+                <Link href="/about">About</Link>
             </nav>
         </header>
     );
