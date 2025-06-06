@@ -8,9 +8,9 @@ export default function Home() {
         <title>Welcome to My Project</title>
       </Head>
       <Header />
-      <main className="p-4">
-        <h1 className="text-3xl font-bold">Welcome To My Next.js Project</h1>
-      </main>
+        <main className="p-4">
+          <h1 className="text-3xl font-bold">Welcome To My Next.js Project</h1>
+        </main>
     </>
   )
 }
