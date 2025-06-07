@@ -1,21 +1,17 @@
-import { useEffect, useState } from 'react';
 import Header from '@/components/layout/Header';
-import { type UserProps } from '@/interfaces';
 import UserCard from '@/components/common/UserCard';
+import { type UserProps } from '@/interfaces';
+import { GetStaticProps } from 'next';
 
-export default function UsersPage() {
-  const [users, setUsers] = useState<UserProps[]>([]);
+interface UsersPageProps {
+  users: UserProps[];
+}
 
-  useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/users')
-      .then(res => res.json())
-      .then(data => setUsers(data));
-  }, []);
-
+export default function UsersPage({ users }: UsersPageProps) {
   return (
     <>
       <Header />
-      <div className="p-4 w-2x">
+      <main className="p-4 space-y-4">
         <h1 className="text-2xl font-bold mb-4">Users</h1>
         <div className="grid gap-4">
           {users.map(user => (
@@ -27,7 +23,18 @@ export default function UsersPage() {
             />
           ))}
         </div>
-      </div>
+      </main>
     </>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const res = await fetch('https://jsonplaceholder.typicode.com/users');
+  const users: UserProps[] = await res.json();
+
+  return {
+    props: {
+      users,
+    },
+  };
+};
