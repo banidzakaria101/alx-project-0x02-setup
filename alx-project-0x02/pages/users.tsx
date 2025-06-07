@@ -19,7 +19,7 @@ export default function UsersPage() {
         <h1 className="text-2xl font-bold mb-4">Latest Posts</h1>
         <div className="grid gap-4">
           {posts.map(post => (
-            <PostCard key={post.id} title={post.title} body={post.body} userId={post.userId} id={0}/>
+            <PostCard key={post.id} title={post.title} content={post.content} userId={post.userId} id={0}/>
           ))}
         </div>
       </main>
