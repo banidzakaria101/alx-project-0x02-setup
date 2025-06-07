@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Header from '@/components/layout/Header';
 import { type UserProps } from '@/interfaces';
-import UserCard from '@/components/common/UserCart';
+import UserCard from '@/components/common/UserCard';
 
 export default function UsersPage() {
   const [users, setUsers] = useState<UserProps[]>([]);
