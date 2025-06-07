@@ -1,28 +1,33 @@
 import { useEffect, useState } from 'react';
 import Header from '@/components/layout/Header';
-import PostCard from '@/components/common/PostCard';
-import { type PostProps } from '@/interfaces';
+import { type UserProps } from '@/interfaces';
+import UserCard from '@/components/common/UserCart';
 
 export default function UsersPage() {
-  const [posts, setPosts] = useState<PostProps[]>([]);
+  const [users, setUsers] = useState<UserProps[]>([]);
 
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/posts?_limit=10')
+    fetch('https://jsonplaceholder.typicode.com/users')
       .then(res => res.json())
-      .then(data => setPosts(data));
+      .then(data => setUsers(data));
   }, []);
 
   return (
     <>
       <Header />
-      <main className="p-4 space-y-4">
-        <h1 className="text-2xl font-bold mb-4">Latest Posts</h1>
+      <div className="p-4 w-2x">
+        <h1 className="text-2xl font-bold mb-4">Users</h1>
         <div className="grid gap-4">
-          {posts.map(post => (
-            <PostCard  title={post.title} content={post.content} userId={post.userId}/>
+          {users.map(user => (
+            <UserCard
+              key={user.id}
+              name={user.name}
+              email={user.email}
+              address={user.address}
+            />
           ))}
         </div>
-      </main>
+      </div>
     </>
   );
 }

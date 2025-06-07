@@ -15,7 +15,7 @@ export default function Home() {
     return (
         <>
             <Header />
-            <h1 className="text-2xl font-bold">Welcom to Home page</h1>
+            <h1 className="text-2xl p-4 font-bold">Welcom to Home page</h1>
             <button onClick={() => setModalOpen(true)} className="bg-blue-600 text-white px-4 py-2 rounded-2xl"> Create Post</button>
             <PostModal isOpen={modalOpen} onClose={() => setModalOpen(false)} onSubmit={handleAddPost} />
             <div className="grid gap-4 mt-6">
